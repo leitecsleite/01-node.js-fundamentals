@@ -31,3 +31,18 @@ HTTP response status codes indicate whether a specific HTTP request has been suc
 - Redirection messages (300 – 399)
 - Client error responses (400 – 499)
 - Server error responses (500 – 599)
+
+## Route e Query parameters
+
+- Query Parameters: URL Stateful => filters, pagination
+
+```
+  http://localhost:3333/users?userId=1&name=Lucas
+```
+
+- Route Parameters: Identificação de recurso
+- Request Body: Sending information from a form (HTTPS).
+
+```
+  Get http://localhost:3333/users/1
+```
