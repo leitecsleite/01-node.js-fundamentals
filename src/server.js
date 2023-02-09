@@ -1,5 +1,8 @@
 import http from 'http'
+import { Database } from './database.js'
 import { json } from './middlewares/json.js'
+
+const database = new Database()
 
 const users = []
 
@@ -12,6 +15,9 @@ const server = http.createServer(async (req, res) => {
     console.log(req.body.name)
 
     if (method === 'GET' && url === '/users') {
+
+        const users = database.select('users')
+
         return res
             .setHeader("Content-type", 'application/json')
             .end(JSON.stringify(users))
@@ -25,6 +31,9 @@ const server = http.createServer(async (req, res) => {
             name,
             email,
         })
+        
+        database.insert('users', user)
+
         return res.writeHead(201).end()
     }
 
