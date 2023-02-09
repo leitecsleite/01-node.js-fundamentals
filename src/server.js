@@ -19,6 +19,7 @@ const server = http.createServer(async (req, res) => {
         const users = database.select('users')
 
         return res
+            .setHeader("Content-type", 'application/json')
             .end(JSON.stringify(users))
     }
 
