@@ -4,7 +4,7 @@ import { json } from './middlewares/json.js'
 
 const database = new Database()
 
-const users = []
+const user = []
 
 const server = http.createServer(async (req, res) => {
 
@@ -19,14 +19,13 @@ const server = http.createServer(async (req, res) => {
         const users = database.select('users')
 
         return res
-            .setHeader("Content-type", 'application/json')
             .end(JSON.stringify(users))
     }
 
     if (method === "POST" && url === "/users") {
 
         const { name, email } = req.body
-        users.push({
+        user.push({
             id: 1,
             name,
             email,
