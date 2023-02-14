@@ -7,7 +7,7 @@ import { routes } from './routes.js'
 
 const server = http.createServer(async (req, res) => {
 
-    const { method, url } = req
+   const { method, url } = req
 
    await json(req, res)
 
