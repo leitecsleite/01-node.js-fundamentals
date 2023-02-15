@@ -19,19 +19,28 @@ export const  routes = [
     },
     {
         method: 'POST',
-        path: buildRoutePath('/users/:id') ,
+        path: buildRoutePath('/users') ,
         handle:(req, res) => {
 
             const { name, email } = req.body
-            user.push({
+
+             const user = {
                 id: randomUUID(),
                 name,
                 email,
-            })
+            }
             
             database.insert('users', user)
     
             return res.writeHead(201).end()
+        }
+    }, 
+
+    {
+        method: 'DELETE', 
+        path: buildRoutePath('/users/:id'), 
+        handle: (req, res) => {
+            return res.end()
         }
     }
 ]
